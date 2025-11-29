@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Đoán Số</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header glass-header" style="background: #333;">
+        <div class="logo" style="color: white;">GAME ZONE</div>
+        <nav class="navbar">
+            <a href="index.html" style="color: white;">Trang chủ</a>
+            <a href="bai01.html" style="color: white;">Sản phẩm</a>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <h2 style="color: var(--primary-color);">Đoán Số Bí Mật</h2>
+        <p>Hệ thống đã chọn một số từ <strong>50 đến 150</strong>.</p>
+        <p>Bạn hãy đoán xem đó là số mấy?</p>
+        
+        <input type="number" id="guessInput" placeholder="Nhập số của bạn...">
+        <br>
+        <button onclick="checkGuess()" class="btn-cta" style="padding: 10px 30px; font-size: 1rem;">Đoán Ngay</button>
+        
+        <div id="message" style="margin-top: 20px; font-weight: bold; font-size: 1.2rem;"></div>
+        <p style="margin-top: 10px;">Số lần thử: <span id="attempts" style="color: red; font-weight: bold;">0</span></p>
+        
+        <button onclick="resetGame()" style="background: #636e72; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 20px;">Chơi lại</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
