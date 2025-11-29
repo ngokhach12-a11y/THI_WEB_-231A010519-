@@ -1,0 +1,370 @@
+/* --- 1. CẤU HÌNH CHUNG & BIẾN MÀU SẮC --- */
+:root {
+    --primary-color: #6c5ce7; /* Màu tím chủ đạo */
+    --secondary-color: #a29bfe;
+    --text-color: #2d3436;
+    --bg-color: #f1f2f6;
+    --glass-bg: rgba(255, 255, 255, 0.1); /* Màu nền kính mờ */
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Font chữ Google */
+    scroll-behavior: smooth; /* Cuộn trang mượt mà */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 2. HEADER: HIỆU ỨNG GLASSMORPHISM --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky; /* Dính lên đầu trang */
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Class tạo hiệu ứng kính mờ */
+.glass-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* Làm mờ nền đằng sau */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Khi cuộn trang xuống (JS sẽ thêm class này) */
+.main-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.hamburger {
+    display: none; /* Ẩn trên máy tính */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* --- 3. PHẦN TRANG CHỦ (INDEX.HTML) --- */
+.container {
+    max-width: 1200px;
+    margin: 80px auto; /* Cách header ra */
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Chia cột: Thông tin 1 phần, Báo 2 phần */
+    gap: 40px;
+}
+
+.profile-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.news-frame iframe {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* --- 4. LANDING PAGE (BAI01.HTML) --- */
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 5% 80px; /* Padding top lớn để bù header */
+    min-height: 90vh;
+    background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+    color: var(--white);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn-cta {
+    padding: 15px 40px;
+    background: var(--white);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 90%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    animation: float 3s ease-in-out infinite; /* Animation bay bay */
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Features Section */
+.section-padding {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section-padding h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.feature-item {
+    flex: 1;
+    background: var(--white);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-item .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Animation classes (Cho JS xử lý) */
+.hidden { opacity: 0; transform: translateY(50px); transition: all 1s; }
+.show { opacity: 1; transform: translateY(0); }
+
+/* Gallery Section */
+.gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.main-image-box img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: opacity 0.3s;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.thumb {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.thumb:hover, .thumb.active {
+    opacity: 1;
+    border: 3px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* --- 5. GAME SECTION (BAI02.HTML) --- */
+.game-container {
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 50px;
+    background: var(--white);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+
+.game-container input {
+    padding: 15px;
+    width: 70%;
+    margin: 30px 0;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    text-align: center;
+}
+
+.game-container input:focus {
+    border-color: var(--primary-color);
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 9999;
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    background: #2d3436;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* --- 7. RESPONSIVE (QUAN TRỌNG ĐỂ LẤY ĐIỂM) --- */
+
+/* Tablet (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Index về 1 cột */
+    }
+    
+    .hero {
+        flex-direction: column-reverse; /* Đảo ngược ảnh lên trên */
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-top: 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .feature-grid {
+        flex-wrap: wrap; /* Cho phép xuống dòng */
+    }
+    
+    .feature-item {
+        flex-basis: 45%; /* Mỗi tính năng chiếm gần 1 nửa (2 cột) */
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 480px) */
+@media (max-width: 480px) {
+    .hamburger {
+        display: block; /* Hiện nút hamburger */
+    }
+
+    .navbar {
+        display: none; /* Ẩn menu đi */
+        /* Nếu muốn làm menu xổ xuống thì cần thêm JS */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Khi thêm class .active vào navbar (cần JS) */
+    .navbar.mobile-active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+        display: block;
+        text-align: center;
+    }
+
+    .feature-item {
+        flex-basis: 100%; /* 1 cột duy nhất */
+    }
+    
+    .thumb {
+        width: 60px;
+        height: 60px;
+    }
+}
