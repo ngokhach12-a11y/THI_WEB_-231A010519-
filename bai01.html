@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm Tai Nghe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header glass-header" id="site-header">
+        <div class="logo">Tai nghe không dây WH-CH520</div>
+        <nav class="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="#features">Tính năng</a>
+            <a href="#gallery">Thư viện ảnh</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+        <div class="hamburger">☰</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Âm Thanh Vượt Trội - Tự Do Tuyệt Đối</h1>
+                <p>Trải nghiệm âm nhạc đỉnh cao với công nghệ chống ồn chủ động và thiết kế công thái học.</p>
+                <button class="btn-cta">Mua Ngay</button>
+            </div>
+            <div class="hero-image">
+                <img src="images/product-main.jpg" alt="Tai nghe ABC">
+            </div>
+        </section>
+
+        <section id="features" class="section-padding">
+            <h2>Tính Năng Nổi Bật</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="icon">🎧</div>
+                    <h3>Chống ồn chủ động</h3>
+                    <p>Loại bỏ 99% tiếng ồn môi trường.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🔋</div>
+                    <h3>Pin 24 Giờ</h3>
+                    <p>Nghe nhạc cả ngày không lo hết pin.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">📶</div>
+                    <h3>Bluetooth 5.2</h3>
+                    <p>Kết nối siêu nhanh, độ trễ cực thấp.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-container" style="margin-top: 50px; margin-bottom: 50px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Thư Viện Ảnh</h2>
+            <div class="main-image-box">
+                <img src="images/product-main.jpg" id="current-img" alt="Ảnh chính">
+            </div>
+            <div class="thumbnails">
+                <img src="images/product-main.jpg" class="thumb active" onclick="changeImage(this)">
+                <img src="images/thumb1.jpg" class="thumb" onclick="changeImage(this)">
+                <img src="images/thumb2.jpg" class="thumb" onclick="changeImage(this)">
+                <img src="images/thumb3.jpg" class="thumb" onclick="changeImage(this)">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABC Audio. Designed by Student.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
